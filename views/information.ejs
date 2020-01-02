@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+  <script src="vendors/exif-js/exif-js"></script>
+  
+  <title>Information</title>
+</head>
+<body>
+  <div class="container">
+    <h1><%=title%></h1>
+    <h3><%=discription%></h3>
+    <%= typeof msg != 'undefined' ? msg : '' %>
+    <img src="<%= typeof file != 'undefined' ? file : '' %>" class="responsive-img">
+    <p>Make: <%=make%></p>
+    <p>Model: <%=model%></p>
+    <p>Created on: <%=create%></p>
+    Location: 
+            <form action="/map" method="POST" enctype="multipart/form-data">
+                <input type="hidden" name="latitude" value="<%=latitude%>">
+                <input type="hidden" name="longitude" value="<%=longitude%>">
+                <input class="btn btn-info" type="submit" value="Map">
+            </form>
+        </br>
+            <form>
+                    <input class="btn btn-info" type="button" value="Home" onclick="history.back()">
+            </form>
+        </br>
+  </div>
+  <script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+</body>
+</html>
